@@ -13,7 +13,6 @@ namespace EmployeeDatabase
             System.Console.WriteLine("🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻");
             Console.WriteLine("------------------------------------");
             Console.WriteLine();
-            Console.WriteLine();
         }
         static string PromptForString(string prompt)
         {
@@ -28,10 +27,26 @@ namespace EmployeeDatabase
         }
         static int PromptForInteger(string prompt)
         {
+            // System.Console.WriteLine(prompt);
+            // var userInput = Console.ReadLine();
+            //using int.Parse
+            // var userInput = PromptForString(prompt);//we can call a method within another method
+            // var userInputAsInteger = int.Parse(userInput);//extra step compared with PromptForString()
+            // return userInputAsInteger;
+            //using try.Parse
             System.Console.WriteLine(prompt);
-            var userInput = Console.ReadLine();
-            var userInputAsInteger = int.Parse(userInput);//extra step compared with PromptForString()
-            return userInputAsInteger;
+            int userInput;
+            //isThisInputGood will get a boolean
+            var isThisInputGood = int.TryParse(Console.ReadLine(), out userInput); //out argument
+            if (isThisInputGood)
+            {
+                return userInput;
+            }
+            else
+            {
+                System.Console.WriteLine($"Sorry, that is not a valid input. I am using 0 as your answer. ");
+                return 0;
+            }
         }
         static void Main(string[] args)
         {
