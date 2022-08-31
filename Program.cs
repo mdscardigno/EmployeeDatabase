@@ -57,7 +57,7 @@ namespace EmployeeDatabase
             var name = PromptForString("What is your name? ");
             var department = PromptForInteger("What is your department number? ");
             var salary = PromptForInteger("What is your yearly salary (in dollar)?");
-            var salaryPerMonth = salary / 12;
+            var salaryPerMonth = salary / 12.0;//if using a method, use a double
             Console.WriteLine($"Hello, {name}, you make 💲{salaryPerMonth}💰 dollars per month.");
         }
     }
