@@ -34,13 +34,16 @@ namespace EmployeeDatabase
             // var userInputAsInteger = int.Parse(userInput);//extra step compared with PromptForString()
             // return userInputAsInteger;
             //using try.Parse
-            System.Console.WriteLine(prompt);
-            int userInput;
+            // System.Console.WriteLine(prompt);
+            var userInput = PromptForString(prompt);
+            int userInputAsInteger;
             //isThisInputGood will get a boolean
-            var isThisInputGood = int.TryParse(Console.ReadLine(), out userInput); //out argument
+            //var isThisInputGood = int.TryParse(Console.ReadLine(), out userInput); //out argument
+            //notice that methods in this language can return one thing. Some languages you can return two things.
+            var isThisInputGood = int.TryParse(userInput, out userInputAsInteger); //out argument is a changable variable. it is what comes out of the function.
             if (isThisInputGood)
             {
-                return userInput;
+                return userInputAsInteger;
             }
             else
             {
