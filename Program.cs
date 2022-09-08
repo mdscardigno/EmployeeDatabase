@@ -2,6 +2,54 @@
 
 namespace EmployeeDatabase
 {
+    //
+    //Class keyword
+    //|
+    //|
+    //|   Name of classes (PascalCase)
+    //|    |
+    //|    |
+    //v    v
+    class Employee
+    {
+        // public means "this can be seen outside of the class"
+        // |
+        // |   Type
+        // |   |
+        // |   |      Name of property
+        // |   |      |
+        // |   |      |
+        // |   |      |
+        // v   v      v
+        public string Name;
+        public int Department;
+        public int Salary;
+        public int MonthlySalary;
+
+        // This is a *special* method known as a "constructor"
+        // The constructor is called when we write a line like: `var bob = new Employee(`
+        // The arguments to the method should line up to those below
+        //
+        //              This will become the employee's name
+        //              |               This will become the employee's department
+        //              |               |                  This will become the employee's salary
+        //              |               |                  |              This will become the employee's monthly salary
+        //              |               |                  |              |
+        //              v               v                  v              v
+        public Employee(string newName, int newDepartment, int newSalary, int newMonthlySalary)
+        {
+            // In the constructor we should setup the values for any of the properties.
+            // Here we will *copy* the values given by the arguments to the corresponding property.
+            //- Property  Value
+            //|       |
+            //v       v
+            Name = newName;
+            Department = newDepartment;
+            Salary = newSalary;
+            MonthlySalary = newSalary;
+        }
+
+    }
     class Program
     {
         static void DisplayGreeting()
