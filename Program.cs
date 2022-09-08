@@ -51,13 +51,18 @@ namespace EmployeeDatabase
                 return 0;
             }
         }
+        static int ComputeMonthlySalaryFromYearly(int yearlySalary)
+        {
+            return yearlySalary / 12;
+        }
         static void Main(string[] args)
         {
             DisplayGreeting();
             var name = PromptForString("What is your name? ");
             var department = PromptForInteger("What is your department number? ");
             var salary = PromptForInteger("What is your yearly salary (in dollar)?");
-            var salaryPerMonth = salary / 12.0;//if using a method, use a double
+            // var salaryPerMonth = salary / 12.0;//if using a method, use a double
+            var salaryPerMonth = ComputeMonthlySalaryFromYearly(salary);
             Console.WriteLine($"Hello, {name}, you make 💲{salaryPerMonth}💰 dollars per month.");
         }
     }
