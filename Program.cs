@@ -145,23 +145,59 @@ namespace EmployeeDatabase
                 MonthlySalary = 20_000
             };//using an initializer which is much like our List data structure.
             //now lets look at an initializer inside an initializer
+            // var employees = new List<Employee>()
+            // {
+            //     new Employee(){
+            //     Name = "Gavin Stark",
+            //     },
+            //     new Employee(){
+            //         Name = "Mila Scardigno"
+            //     },
+            //     new Employee(){}//for a default value. If I do not add the braces, this will be a new empty Employee without a Name
+            // };
+            //braces free creation of a  new object
+            var elonMusk = new Employee();
+            elonMusk.Name = "Elon Musk";
+            var gavin = new Employee();
+            gavin.Name = "Gavin Stark";
+
+
+            // graceHopper.Name = "Grace Hopper";
+            // graceHopper.Department = 100;
+            //braces using creation of a new object and initializes the object
+            //
+            //just like var scores = new List<int>(){1,2,3,4,5,6};
+            //
+            //creates a new list and puts a few numbers in it.
+            var grace = new Employee()
+            {
+                Name = "Grace Hopper"
+            };
+            //Braces initialization of a list containing three employees
             var employees = new List<Employee>()
             {
-                new Employee(){
-                Name = "Elon Musk",
-                },
-                new Employee(){
-                Name = "Gavin Stark",
-                },
-                new Employee(){
-                    Name = "Mila Scardigno"
-                },
-                new Employee(){}//for a default value. If I do not add the braces, this will be a new empty Employee without a Name
+                gavin, elonMusk, graceHopper
             };
 
-            graceHopper.Name = "Grace Hopper";
-            graceHopper.Department = 100;
+            var employeeNoBraces = new List<Employee>();
+            employeeNoBraces.Add(gavin);
+            employeeNoBraces.Add(elonMusk);
+            employeeNoBraces.Add(grace);
 
+            //all in one
+            //complex syntax to make a new list and three employees all at once
+            var allInOne = new List<Employee>()
+            {
+new Employee(){
+    Name = "Elon Musk"
+},
+new Employee(){
+    Name = "Grace Hoppper"
+},
+new Employee(){
+    Name = "Gavin stark"
+}
+            };
             //commented code with the other way of creating objects
             // var graceHopper = new Employee("Grace Hopper", 100, 240_000, 20_000); // an Employee object
             // Console.WriteLine(graceHopper.Department);
