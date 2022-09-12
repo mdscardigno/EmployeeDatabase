@@ -152,7 +152,11 @@ namespace EmployeeDatabase
                 },
                 new Employee(){
                 Name = "Gavin Stark",
-                }
+                },
+                new Employee(){
+                    Name = "Mila Scardigno"
+                },
+                new Employee(){}//for a default value. If I do not add the braces, this will be a new empty Employee without a Name
             };
 
             graceHopper.Name = "Grace Hopper";
