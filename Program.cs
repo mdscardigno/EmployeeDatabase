@@ -118,10 +118,11 @@ namespace EmployeeDatabase
             var elonMusk = new Employee("Elon Musk", 42, 120_000, 10_000);
             Console.WriteLine(elonMusk.Department);
 
-            var employees = new List<Employee>();
-            employees.Add(graceHopper);// first object in the list Index 0
-            employees.Add(elonMusk);// second object in the list Index 1
-
+            // var employees = new List<Employee>();
+            var employees = new List<Employee>() { graceHopper, elonMusk, new Employee("Gavin Stark", 42, 12_000, 100_000) };// constructing an object in line with adding new objects
+            // employees.Add(graceHopper);// first object in the list Index 0
+            // employees.Add(elonMusk);// second object in the list Index 1
+            employees.RemoveAt(0);
             DisplayGreeting();
             var name = PromptForString("What is your name? ");
             var department = PromptForInteger("What is your department number? ");
