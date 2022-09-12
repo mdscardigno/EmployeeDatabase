@@ -147,12 +147,12 @@ namespace EmployeeDatabase
             //now lets look at an initializer inside an initializer
             var employees = new List<Employee>()
             {
-new Employee(){
-    Name = "Elon Musk",
-},
-new Employee(){
-    Name = "Gavin Stark",
-}
+                new Employee(){
+                Name = "Elon Musk",
+                },
+                new Employee(){
+                Name = "Gavin Stark",
+                }
             };
 
             graceHopper.Name = "Grace Hopper";
