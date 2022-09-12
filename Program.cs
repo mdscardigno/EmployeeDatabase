@@ -43,7 +43,7 @@ namespace EmployeeDatabase
             get; set;
         }
         //using the prop shortcut. investigate other prop shortcuts
-        public bool IsPartTime { get; set; }
+        public string IsPartTime { get; set; }
         public string FavoriteColor { get; set; }
         public int Age { get; set; }
         public double FavoriteNumber { get; set; }
@@ -179,10 +179,10 @@ namespace EmployeeDatabase
                 gavin, elonMusk, graceHopper
             };
 
-            var employeeNoBraces = new List<Employee>();
-            employeeNoBraces.Add(gavin);
-            employeeNoBraces.Add(elonMusk);
-            employeeNoBraces.Add(grace);
+            // var employeeNoBraces = new List<Employee>();
+            // employeeNoBraces.Add(gavin);
+            // employeeNoBraces.Add(elonMusk);
+            // employeeNoBraces.Add(grace);
 
             //all in one
             //complex syntax to make a new list and three employees all at once
@@ -224,22 +224,37 @@ new Employee(){
             bool keepGoing = true;
             while (keepGoing)
             {
-                var name = PromptForString("What is your name? ");
-                var department = PromptForInteger("What is your department number? ");
-                var salary = PromptForInteger("What is your yearly salary (in dollar)?");
+                //Loosely collect variable with info on a new employee
+                Console.WriteLine($"-------You have {employeeList.Count} employees.-------");
+                Console.WriteLine();
+                string name = PromptForString("What is your name? ");
+                int department = PromptForInteger("What is your department number? ");
+                int salary = PromptForInteger("What is your yearly salary (in dollar)?");
                 // var monthlySalary = salary / 12.0;//if using a method, use a double
-                var monthlySalary = ComputeMonthlySalary(salary);
+                int monthlySalary = ComputeMonthlySalary(salary);
                 // Console.WriteLine($"Hello, {name}, you make 💲{monthlySalary}💰 dollars per month.");
+                string isPartTime = PromptForString("Is this employee part time?. Y/N");
 
-                // making a new Employee with simpler syntax
+                // making a new Employee with simpler syntax and fill in their detail for the variable above
                 var newEmployee = new Employee();
                 newEmployee.Name = name;
                 newEmployee.Salary = salary;
                 newEmployee.MonthlySalary = monthlySalary;
                 newEmployee.Department = department;
-
-                employeeList.Add(newEmployee);
+                newEmployee.IsPartTime = isPartTime;
+                employeeList.Add(newEmployee);//slap that employee a the end of our list
                 //maybe we can put a loop around this code
+
+                var answer = PromptForString("Keep going?");
+                if (answer == "no".ToLower() || answer == "n".ToLower())
+                {
+                    keepGoing = false;
+                }
+                // another way to do it but the if statement with the condition is fine
+                // if (string.Equals(answer, "no", StringComparison.OrdinalIgnoreCase))
+                // {
+                //     keepGoing = false;
+                // }
             }
 
         }
