@@ -144,6 +144,16 @@ namespace EmployeeDatabase
                 Salary = 240_000,
                 MonthlySalary = 20_000
             };//using an initializer which is much like our List data structure.
+            //now lets look at an initializer inside an initializer
+            var employees = new List<Employee>()
+            {
+new Employee(){
+    Name = "Elon Musk",
+},
+new Employee(){
+    Name = "Gavin Stark",
+}
+            };
 
             graceHopper.Name = "Grace Hopper";
             graceHopper.Department = 100;
