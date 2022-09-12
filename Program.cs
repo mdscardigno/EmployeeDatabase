@@ -48,34 +48,34 @@ namespace EmployeeDatabase
         public int Age { get; set; }
         public double FavoriteNumber { get; set; }
         //The Properties of a class is the state that is keeping track of.   
-        // This is a *special* method known as a "constructor"
-        // The constructor is called when we write a line like: `var bob = new Employee(`
-        // The arguments to the method should line up to those below
-        //
-        //              This will become the employee's name
-        //              |               This will become the employee's department
-        //              |               |                  This will become the employee's salary
-        //              |               |                  |              This will become the employee's monthly salary
-        //              |               |                  |              |
-        //              v               v                  v              v
-        public Employee(string newName, int newDepartment, int newSalary, int newMonthlySalary)
-        {
-            //there are other definitions for properties,whether they are public, private or protected.
-            //Properties can be accessed by code outside the class when properties are public.
-            //Private properties can only be seen from other code within the class itself. 
-            //Private properties...
-            //we cant use var style definition in the constructor since we must tell the code what type of information this property stores.
-            //Properties by convention are named camelCase.
-            // In the constructor we should setup the values for any of the properties.
-            // Here we will *copy* the values given by the arguments to the corresponding property.
-            //- Property  Value
-            //|       |
-            //v       v
-            Name = newName;
-            Department = newDepartment;
-            Salary = newSalary;
-            MonthlySalary = newMonthlySalary;
-        }
+        // // This is a *special* method known as a "constructor"
+        // // The constructor is called when we write a line like: `var bob = new Employee(`
+        // // The arguments to the method should line up to those below
+        // //
+        // //              This will become the employee's name
+        // //              |               This will become the employee's department
+        // //              |               |                  This will become the employee's salary
+        // //              |               |                  |              This will become the employee's monthly salary
+        // //              |               |                  |              |
+        // //              v               v                  v              v
+        // public Employee(string newName, int newDepartment, int newSalary, int newMonthlySalary)
+        // {
+        //     //there are other definitions for properties,whether they are public, private or protected.
+        //     //Properties can be accessed by code outside the class when properties are public.
+        //     //Private properties can only be seen from other code within the class itself. 
+        //     //Private properties...
+        //     //we cant use var style definition in the constructor since we must tell the code what type of information this property stores.
+        //     //Properties by convention are named camelCase.
+        //     // In the constructor we should setup the values for any of the properties.
+        //     // Here we will *copy* the values given by the arguments to the corresponding property.
+        //     //- Property  Value
+        //     //|       |
+        //     //v       v
+        //     Name = newName;
+        //     Department = newDepartment;
+        //     Salary = newSalary;
+        //     MonthlySalary = newMonthlySalary;
+        // }
 
     }
     class Program
@@ -133,25 +133,40 @@ namespace EmployeeDatabase
         }
         static void Main(string[] args)
         {
+            //another way of creating object with the constructor commented out bellow:
+            //very similar to our List, for example: var scores = new List<int>() { 42, 36, 36, 77 };
+            var graceHopper = new Employee()
+            {
+                //the order does not matter and I do not have to provide all the properties.
+                //I can provide the properties I want
+                Name = "Grace Hopper",
+                Department = 100,
+                Salary = 240_000,
+                MonthlySalary = 20_000
+            };//using an initializer which is much like our List data structure.
 
-            var graceHopper = new Employee("Grace Hopper", 100, 240_000, 20_000); // an Employee object
-            Console.WriteLine(graceHopper.Department);
-            var elonMusk = new Employee("Elon Musk", 42, 120_000, 10_000);
-            Console.WriteLine(elonMusk.Department);
-            // elonMusk.Department = 55; if I want to be able to change Elon's Department Number.
+            graceHopper.Name = "Grace Hopper";
+            graceHopper.Department = 100;
 
-            // var employees = new List<Employee>();
-            var employees = new List<Employee>() {
-                graceHopper,
-                elonMusk,
-                new Employee("Gavin Stark", 42, 12_000, 100_000)
-                };// constructing an object in line with adding new objects
-            // employees.Add(graceHopper);// first object in the list Index 0
-            // employees.Add(elonMusk);// second object in the list Index 1
-            employees.RemoveAt(0);
-            //better ways to creating objects
-            //shortcut to making classes with getters and setters
-            //defaults
+            //commented code with the other way of creating objects
+            // var graceHopper = new Employee("Grace Hopper", 100, 240_000, 20_000); // an Employee object
+            // Console.WriteLine(graceHopper.Department);
+            // var elonMusk = new Employee("Elon Musk", 42, 120_000, 10_000);
+            // Console.WriteLine(elonMusk.Department);
+            // // elonMusk.Department = 55; if I want to be able to change Elon's Department Number.
+
+            // // var employees = new List<Employee>();
+            // var employees = new List<Employee>() {
+            //     graceHopper,
+            //     elonMusk,
+            //     new Employee("Gavin Stark", 42, 12_000, 100_000)
+            //     };// constructing an object in Åline with adding new objects
+            // // employees.Add(graceHopper);// first object in the list Index 0
+            // // employees.Add(elonMusk);// second object in the list Index 1
+            // employees.RemoveAt(0);
+            // //better ways to creating objects
+            // //shortcut to making classes with getters and setters
+            // //defaults
 
             DisplayGreeting();
             var name = PromptForString("What is your name? ");
