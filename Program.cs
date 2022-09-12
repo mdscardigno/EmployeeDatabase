@@ -127,7 +127,7 @@ namespace EmployeeDatabase
                 return 0;
             }
         }
-        static int ComputeMonthlySalaryFromYearly(int yearlySalary)
+        static int ComputeMonthlySalary(int yearlySalary)
         {
             return yearlySalary / 12;
         }
@@ -219,12 +219,29 @@ new Employee(){
             // //defaults
 
             DisplayGreeting();
-            var name = PromptForString("What is your name? ");
-            var department = PromptForInteger("What is your department number? ");
-            var salary = PromptForInteger("What is your yearly salary (in dollar)?");
-            // var salaryPerMonth = salary / 12.0;//if using a method, use a double
-            var salaryPerMonth = ComputeMonthlySalaryFromYearly(salary);
-            Console.WriteLine($"Hello, {name}, you make 💲{salaryPerMonth}💰 dollars per month.");
+            var employeeList = new List<Employee>();
+
+            bool keepGoing = true;
+            while (keepGoing)
+            {
+                var name = PromptForString("What is your name? ");
+                var department = PromptForInteger("What is your department number? ");
+                var salary = PromptForInteger("What is your yearly salary (in dollar)?");
+                // var monthlySalary = salary / 12.0;//if using a method, use a double
+                var monthlySalary = ComputeMonthlySalary(salary);
+                // Console.WriteLine($"Hello, {name}, you make 💲{monthlySalary}💰 dollars per month.");
+
+                // making a new Employee with simpler syntax
+                var newEmployee = new Employee();
+                newEmployee.Name = name;
+                newEmployee.Salary = salary;
+                newEmployee.MonthlySalary = monthlySalary;
+                newEmployee.Department = department;
+
+                employeeList.Add(newEmployee);
+                //maybe we can put a loop around this code
+            }
+
         }
     }
 }
