@@ -22,10 +22,31 @@ namespace EmployeeDatabase
         // |   |      |
         // |   |      |
         // v   v      v
-        public string Name;
-        public int Department;
-        public int Salary;
-        public int MonthlySalary;
+        // public string Name;
+        // public int Department;
+        // public int Salary;
+        // public int MonthlySalary;
+        public string Name
+        {
+            get; set; //get: I can fetch or access the property. set: I can change the property.
+        }
+        public int Department
+        {
+            get; set;
+        }
+        public int Salary
+        {
+            get; set;
+        }
+        public int MonthlySalary
+        {
+            get; set;
+        }
+        //using the prop shortcut. investigate other prop shortcuts
+        public bool IsPartTime { get; set; }
+        public string FavoriteColor { get; set; }
+        public int Age { get; set; }
+        public double FavoriteNumber { get; set; }
         //The Properties of a class is the state that is keeping track of.   
         // This is a *special* method known as a "constructor"
         // The constructor is called when we write a line like: `var bob = new Employee(`
@@ -117,6 +138,7 @@ namespace EmployeeDatabase
             Console.WriteLine(graceHopper.Department);
             var elonMusk = new Employee("Elon Musk", 42, 120_000, 10_000);
             Console.WriteLine(elonMusk.Department);
+            // elonMusk.Department = 55; if I want to be able to change Elon's Department Number.
 
             // var employees = new List<Employee>();
             var employees = new List<Employee>() {
@@ -127,6 +149,10 @@ namespace EmployeeDatabase
             // employees.Add(graceHopper);// first object in the list Index 0
             // employees.Add(elonMusk);// second object in the list Index 1
             employees.RemoveAt(0);
+            //better ways to creating objects
+            //shortcut to making classes with getters and setters
+            //defaults
+
             DisplayGreeting();
             var name = PromptForString("What is your name? ");
             var department = PromptForInteger("What is your department number? ");
