@@ -38,10 +38,12 @@ namespace EmployeeDatabase
         {
             get; set;
         }
-        public int MonthlySalary
-        {
-            get; set;
-        }
+        //commented out as we have made this into a method since it is more like a behavior
+        //so we create the method inside of the class Employee
+        // public int MonthlySalary
+        // {
+        //     get; set;
+        // }
         //using the prop shortcut. investigate other prop shortcuts
         public string IsPartTime { get; set; }
         public string FavoriteColor { get; set; }
@@ -76,6 +78,17 @@ namespace EmployeeDatabase
         //     Salary = newSalary;
         //     MonthlySalary = newMonthlySalary;
         // }
+        //once we have instances of an object we can create a method inside the class
+        public int MonthlySalary()
+        {
+            //I do not need to pass in the salary within the method because I am inside the Employee class
+            int computerMonthlySalary = Salary / 12; //not longer a property but a behavior
+            //we need to consider the questions: do we need input? External data or data that the class is already has?
+            // classes and object. the behaviors are shared. the data is individual. every employee will have a monthlySalary method
+            //but if we ask inside of that method for instance data, is whatever that object's property is.
+            //the data and state is unique.
+            return computerMonthlySalary;
+        }
 
     }
     class Program
@@ -127,10 +140,6 @@ namespace EmployeeDatabase
                 return 0;
             }
         }
-        static int ComputeMonthlySalary(int yearlySalary)
-        {
-            return yearlySalary / 12;
-        }
         static void Main(string[] args)
         {
             //another way of creating object with the constructor commented out bellow:
@@ -142,7 +151,7 @@ namespace EmployeeDatabase
                 Name = "Grace Hopper",
                 Department = 100,
                 Salary = 240_000,
-                MonthlySalary = 20_000
+                // MonthlySalary = 20_000
             };//using an initializer which is much like our List data structure.
             //now lets look at an initializer inside an initializer
             // var employees = new List<Employee>()
@@ -160,7 +169,10 @@ namespace EmployeeDatabase
             elonMusk.Name = "Elon Musk";
             var gavin = new Employee();
             gavin.Name = "Gavin Stark";
-
+            //calling the a method on these three different Employee objects 
+            gavin.MonthlySalary();
+            elonMusk.MonthlySalary();
+            graceHopper.MonthlySalary();
 
             // graceHopper.Name = "Grace Hopper";
             // graceHopper.Department = 100;
@@ -231,7 +243,7 @@ new Employee(){
                 int department = PromptForInteger("What is your department number? ");
                 int salary = PromptForInteger("What is your yearly salary (in dollar)?");
                 // var monthlySalary = salary / 12.0;//if using a method, use a double
-                int monthlySalary = ComputeMonthlySalary(salary);
+                // int monthlySalary = ComputeMonthlySalary(salary);
                 // Console.WriteLine($"Hello, {name}, you make 💲{monthlySalary}💰 dollars per month.");
                 string isPartTime = PromptForString("Is this employee part time?. Y/N");
 
@@ -239,11 +251,15 @@ new Employee(){
                 var newEmployee = new Employee();
                 newEmployee.Name = name;
                 newEmployee.Salary = salary;
-                newEmployee.MonthlySalary = monthlySalary;
+                System.Console.WriteLine($"By the way, their monthly salary is: {newEmployee.MonthlySalary()}");
                 newEmployee.Department = department;
                 newEmployee.IsPartTime = isPartTime;
                 employeeList.Add(newEmployee);//slap that employee a the end of our list
-                //maybe we can put a loop around this code
+                                              //maybe we can put a loop around this code
+                                              //what happens if an employer doubles the employees salaries?
+                                              // it now sounds like monthlySalary is more like a behavior; therefore we make it a method
+                                              //every time you are calling a method on a class, you have to provide which instance.
+
 
                 var answer = PromptForString("Keep going?");
                 if (answer == "no".ToLower() || answer == "n".ToLower())
