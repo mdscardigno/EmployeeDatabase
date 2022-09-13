@@ -79,6 +79,7 @@ namespace EmployeeDatabase
         //     MonthlySalary = newMonthlySalary;
         // }
         //once we have instances of an object we can create a method inside the class
+        //refactor MonthlySalary
         public int MonthlySalary()
         {
             //I do not need to pass in the salary within the method because I am inside the Employee class
